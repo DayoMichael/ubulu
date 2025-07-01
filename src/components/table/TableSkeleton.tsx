@@ -1,8 +1,8 @@
 import { Skeleton } from "../ui/skeleton";
 import {
   Card,
-  CardHeader,
-  CardTitle,
+  // CardHeader,
+  // CardTitle,
   CardContent,
   CardFooter,
 } from "../ui/card";
@@ -10,14 +10,14 @@ import {
 export function TableSkeleton() {
   return (
     <Card className="max-w-full w-full mx-auto h-full flex flex-col">
-      <CardHeader className="flex flex-row items-center justify-between">
+      {/* <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Users Table</CardTitle>
-      </CardHeader>
+      </CardHeader> */}
       <CardContent className="space-y-4 h-full flex-1 flex flex-col">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+        {/* <div className="flex flex-col sm:flex-row sm:items-center gap-2">
           <Skeleton className="h-10 w-48" />
           <Skeleton className="h-10 w-32" />
-        </div>
+        </div> */}
         <div className="overflow-x-auto flex-1">
           <div className="bg-card text-card-foreground border border-border rounded-lg overflow-hidden h-full min-h-[60vh] w-full">
             <table className="w-full caption-bottom text-sm">
