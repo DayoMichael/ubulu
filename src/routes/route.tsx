@@ -1,9 +1,8 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage } from "./components/HomePage";
-import { UsersTablePage } from "./pages/UsersTablePage";
-import { DynamicFormPage } from "./pages/DynamicFormPage";
-import { BlogRoutes } from "./routes/BlogRoutes";
+import { HomePage } from "../components/HomePage";
+import { UsersTablePage } from "../pages/UsersTablePage";
+import { DynamicFormPage } from "../pages/DynamicFormPage";
+import { BlogRoutes } from "./BlogRoutes";
 
 function App() {
   return (
