@@ -27,8 +27,8 @@ A modern, modular, and scalable Vite + React + TypeScript application featuring 
 1. **Clone the repository:**
 
    ```bash
-   git clone <your-repo-url>
-   cd ubulu/ubulu-test
+   git clone https://github.com/DayoMichael/ubulu.git
+   cd ubulu-test
    ```
 
 2. **Install dependencies:**
@@ -72,9 +72,12 @@ A modern, modular, and scalable Vite + React + TypeScript application featuring 
   - Animated UI, live-editable JSON config, error toasts
 
 - **Mini Blog App:**
+
   - Twitter/Reddit-style feed, CRUD, routing, Zustand state
   - Tiptap rich text editor, live preview, Markdown rendering
   - Animated backgrounds, floating particles, orbs
+
+- Supports both dark mode and light mode for an enhanced user experience.
 
 ---
 
@@ -90,7 +93,7 @@ A modern, modular, and scalable Vite + React + TypeScript application featuring 
 
 ## 🌐 Demo
 
-> [Demo Link (if deployed)](https://your-demo-link.com)
+> [Demo Link](https://ubulu-nine.vercel.app/)
 
 ---
 
