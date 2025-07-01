@@ -96,9 +96,7 @@ export const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
           >
-            Choose a task to get started with your workflow. Each module is
-            designed to provide powerful functionality with an intuitive
-            interface.
+            Choose a task to view the demo and test the app.
           </motion.p>
         </motion.div>
 
