@@ -42,7 +42,6 @@ export function DynamicForm({ config, onSubmit, className }: DynamicFormProps) {
     setIsSubmitted(true);
     onSubmit?.(data);
 
-    // Reset form after submission
     setTimeout(() => {
       setIsSubmitted(false);
       setSubmittedData(null);

@@ -42,7 +42,6 @@ export function DataTableWrapper() {
   const { deleteUsers, deletingIds } = useUserDeletion();
   const [searchInput, setSearchInput] = useState(search);
 
-  // Show all users including those being deleted for animation
   const visibleUsers = data?.users || [];
 
   const handleBulkDelete = () => {
@@ -75,7 +74,6 @@ export function DataTableWrapper() {
     }
   }, [selectedIds, data]);
 
-  // Sync Zustand store with URL params on mount
   useEffect(() => {
     const urlPage = Number(searchParams.get("page")) || 1;
     const urlSearch = searchParams.get("search") || "";
@@ -88,7 +86,6 @@ export function DataTableWrapper() {
     if (sortOrder !== urlSortOrder && urlSortBy) setSort(urlSortBy); // toggles order if needed
   }, []); // eslint-disable-line
 
-  // Update URL params when state changes
   useEffect(() => {
     setSearchParams({
       page: String(page),

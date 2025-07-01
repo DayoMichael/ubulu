@@ -27,7 +27,6 @@ export function BlogEditPage() {
   const navigate = useNavigate();
   const [title, setTitle] = useState(post?.title || "");
   const [content, setContent] = useState(post?.content || "");
-  // Stable avatar for the session
   const [avatar] = useState(
     () => AVATARS[Math.floor(Math.random() * AVATARS.length)]
   );

@@ -23,7 +23,6 @@ export function JsonEditor({
   const [isValid, setIsValid] = useState(true);
   const [hasChanges, setHasChanges] = useState(false);
 
-  // Initialize JSON text from config
   useEffect(() => {
     setJsonText(JSON.stringify(config, null, 2));
     setHasChanges(false);
@@ -34,8 +33,6 @@ export function JsonEditor({
   ): { isValid: boolean; parsed?: FormConfig; error?: string } => {
     try {
       const parsed = JSON.parse(text);
-
-      // Basic structure validation
       if (!parsed.title || typeof parsed.title !== "string") {
         return { isValid: false, error: "Missing or invalid 'title' field" };
       }
@@ -43,8 +40,6 @@ export function JsonEditor({
       if (!parsed.fields || !Array.isArray(parsed.fields)) {
         return { isValid: false, error: "Missing or invalid 'fields' array" };
       }
-
-      // Validate each field
       for (let i = 0; i < parsed.fields.length; i++) {
         const field = parsed.fields[i];
 
@@ -57,7 +52,6 @@ export function JsonEditor({
           };
         }
 
-        // Validate field type
         const validTypes = [
           "text",
           "email",
@@ -76,7 +70,6 @@ export function JsonEditor({
           };
         }
 
-        // Validate select field has options
         if (
           field.type === "select" &&
           (!field.options || !Array.isArray(field.options))
@@ -87,7 +80,6 @@ export function JsonEditor({
           };
         }
 
-        // Validate field names are unique
         const duplicateNames = parsed.fields.filter(
           (f: Record<string, unknown>) => f.name === field.name
         );

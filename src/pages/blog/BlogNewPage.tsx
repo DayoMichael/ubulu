@@ -37,7 +37,7 @@ export function BlogNewPage() {
   const [content, setContent] = useState("");
   const addPost = useBlogStore((s) => s.addPost);
   const navigate = useNavigate();
-  // Stable avatar for the session
+
   const [avatar] = useState(
     () => AVATARS[Math.floor(Math.random() * AVATARS.length)]
   );

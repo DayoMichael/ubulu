@@ -46,11 +46,11 @@ export function BlogEditor({
     },
   });
 
-  // Keep editor content in sync with prop
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
       editor.commands.setContent(content || "");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [content]);
 
   return (

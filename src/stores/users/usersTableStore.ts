@@ -36,10 +36,8 @@ export const useUsersTableStore = create<UsersTableState>((set) => ({
   setSort: (sortBy) =>
     set((state) => {
       if (state.sortBy === sortBy) {
-        // Toggle sort order
         return { sortOrder: state.sortOrder === "asc" ? "desc" : "asc" };
       } else {
-        // New sort column
         return { sortBy, sortOrder: "asc" };
       }
     }),
@@ -52,19 +50,17 @@ export const useUsersTableStore = create<UsersTableState>((set) => ({
   clearSelection: () => set({ selectedIds: [] }),
   selectAll: (ids) => set({ selectedIds: ids }),
   deleteUsers: (ids) => {
-    // First, mark items as deleting to trigger animation
     set((state) => ({
       deletingIds: [...state.deletingIds, ...ids],
       selectedIds: state.selectedIds.filter((id) => !ids.includes(id)),
     }));
 
-    // After animation completes, permanently remove from cache
     setTimeout(() => {
       set((state) => ({
         deletingIds: state.deletingIds.filter((id) => !ids.includes(id)),
         deletedIds: [...state.deletedIds, ...ids],
       }));
-    }, 350); // Slightly longer than animation to ensure it completes
+    }, 350);
   },
   clearDeletedIds: () => set({ deletedIds: [] }),
 }));

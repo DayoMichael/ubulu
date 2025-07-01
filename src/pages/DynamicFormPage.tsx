@@ -41,7 +41,6 @@ export function DynamicFormPage() {
 
   const handleFormSubmit = (data: FormData) => {
     console.log("Form submitted:", data);
-    // In a real app, you would send this data to your API
   };
 
   const handleConfigChange = (newConfig: FormConfig) => {
@@ -50,7 +49,6 @@ export function DynamicFormPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      {/* Top bar: Back to Home + Theme Toggle */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-2 pt-3 pb-2 md:px-4 md:pt-6 container mx-auto gap-2">
         <Link
           to="/"

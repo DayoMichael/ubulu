@@ -42,14 +42,11 @@ export interface FormConfig {
   submitButtonText?: string;
 }
 
-// Dynamic schema generation based on form config
 export function generateFormSchema(config: FormConfig) {
   const schemaFields: Record<string, z.ZodTypeAny> = {};
 
   config.fields.forEach((field) => {
     let fieldSchema: z.ZodTypeAny;
-
-    // Apply field type validation
     switch (field.type) {
       case "email":
         fieldSchema = z.string().email("Please enter a valid email address");
@@ -79,7 +76,6 @@ export function generateFormSchema(config: FormConfig) {
         fieldSchema = z.string();
     }
 
-    // Apply required validation for non-checkbox fields
     if (field.required && field.type !== "checkbox") {
       if (fieldSchema instanceof z.ZodString) {
         fieldSchema = fieldSchema.min(1, `${field.label} is required`);
@@ -88,7 +84,6 @@ export function generateFormSchema(config: FormConfig) {
       fieldSchema = fieldSchema.optional();
     }
 
-    // Apply custom validation rules for string fields
     if (field.validation && field.type !== "checkbox") {
       if (fieldSchema instanceof z.ZodString) {
         const stringSchema = fieldSchema as z.ZodString;

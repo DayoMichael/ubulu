@@ -13,69 +13,9 @@ import {
 import { Link } from "react-router-dom";
 import { useUsersQuery } from "../hooks/users/useUsersQuery";
 import { useUsersTableStore } from "@/stores";
+import { AnimatedOrbs } from "@/widgets/home/AnimatedOrbs";
+import { FloatingParticles } from "@/widgets/home/FloatingParticles";
 
-// Floating particles component
-const FloatingParticles = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {[...Array(15)].map((_, i) => (
-      <motion.div
-        key={i}
-        className="absolute w-1 h-1 bg-primary/30 rounded-full"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-        }}
-        animate={{
-          y: [0, -20, 0],
-          opacity: [0, 1, 0],
-          scale: [0, 1, 0],
-        }}
-        transition={{
-          duration: 2 + Math.random() * 2,
-          repeat: Infinity,
-          delay: Math.random() * 2,
-          ease: "easeInOut",
-        }}
-      />
-    ))}
-  </div>
-);
-
-// Animated background orbs for table page
-const AnimatedOrbs = () => (
-  <div className="absolute inset-0 overflow-hidden">
-    {[
-      { size: 250, delay: 0, duration: 10, color: "bg-blue-500/8" },
-      { size: 300, delay: 2, duration: 12, color: "bg-purple-500/6" },
-      { size: 200, delay: 4, duration: 8, color: "bg-indigo-500/5" },
-      { size: 180, delay: 1, duration: 11, color: "bg-cyan-500/4" },
-    ].map((orb, i) => (
-      <motion.div
-        key={i}
-        className={`absolute rounded-full blur-3xl ${orb.color}`}
-        style={{
-          width: orb.size,
-          height: orb.size,
-          left: `${15 + i * 20}%`,
-          top: `${20 + i * 15}%`,
-        }}
-        animate={{
-          x: [0, 80, 0],
-          y: [0, -40, 0],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: orb.duration,
-          repeat: Infinity,
-          delay: orb.delay,
-          ease: "easeInOut",
-        }}
-      />
-    ))}
-  </div>
-);
-
-// Animated stats cards
 const StatsCard = ({
   icon: Icon,
   title,
@@ -118,7 +58,6 @@ const StatsCard = ({
   </motion.div>
 );
 
-// Animated action buttons
 const ActionButton = ({
   icon: Icon,
   label,
@@ -164,11 +103,9 @@ export const UsersTablePage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Get users data from the store
   const { data } = useUsersQuery();
   const { search, pageSize } = useUsersTableStore();
 
-  // Calculate real statistics
   const totalUsers = data?.total || 0;
   const currentPageItems = data?.users?.length || 0;
   const searchResults = data?.searchResults || 0;
