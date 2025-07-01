@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useUsersQuery } from "../hooks/users/useUsersQuery";
-import { useUsersTableStore } from "../stores/users/usersTableStore";
+import { useUsersTableStore } from "@/stores";
 
 // Floating particles component
 const FloatingParticles = () => (

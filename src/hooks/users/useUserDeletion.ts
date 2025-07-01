@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { useUsersTableStore } from "../../stores/users/usersTableStore";
+import { useUsersTableStore } from "@/stores";
 import { useCallback } from "react";
 
 export function useUserDeletion() {
@@ -9,15 +9,11 @@ export function useUserDeletion() {
 
   const deleteUsers = useCallback(
     (userIds: number[]) => {
-      // First, mark items as deleting to trigger animation
       useUsersTableStore.setState((state) => ({
         deletingIds: [...state.deletingIds, ...userIds],
         selectedIds: state.selectedIds.filter((id) => !userIds.includes(id)),
       }));
-
-      // After animation completes, permanently remove from cache and store
       setTimeout(() => {
-        // Update the cache to remove the users
         queryClient.setQueryData(
           [
             "users",
@@ -38,8 +34,6 @@ export function useUserDeletion() {
             };
           }
         );
-
-        // Update the store
         useUsersTableStore.setState((state) => ({
           deletingIds: state.deletingIds.filter((id) => !userIds.includes(id)),
           deletedIds: [...state.deletedIds, ...userIds],

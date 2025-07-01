@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
-import { useBlogStore } from "../../stores/blog/blogStore";
+import { useBlogStore } from "@/stores";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { BlogEditor } from "../../widgets/blog/editor/BlogEditor";
 import { motion } from "framer-motion";

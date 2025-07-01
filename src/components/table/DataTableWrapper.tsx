@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { DataTable } from "./DataTable";
-import { useUsersTableStore } from "../../stores/users/usersTableStore";
+import { useUsersTableStore } from "@/stores";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import type { User } from "../../types/user";
@@ -19,7 +19,6 @@ import {
 } from "../ui/card";
 import { useSearchParams } from "react-router-dom";
 import { Pagination } from "./Pagination";
-import React from "react";
 
 export function DataTableWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();

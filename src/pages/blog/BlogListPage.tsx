@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { useBlogStore } from "../../stores/blog/blogStore";
+import { useBlogStore } from "@/stores";
 import { Sparkles, Trash2, Edit2, Plus, ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "../../components/ui/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
